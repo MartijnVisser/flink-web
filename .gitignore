@@ -9,3 +9,5 @@
 .idea
 *.iml
 .jekyll-metadata
+go.mod
+go.sum
