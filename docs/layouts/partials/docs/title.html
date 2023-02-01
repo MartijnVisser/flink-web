@@ -30,6 +30,11 @@ under the License.
   {{ $title = .File.BaseFileName | humanize | title }}
 {{ end }}
 
+{{- $vars := (findRE "\\$[a-zA-Z]+" $title) }}
+{{- range $vars -}}
+  {{- $title = (replace $title . (index site.Params (replace . "$" ""))) -}}
+{{- end -}}
+
 {{ if .Params.icon }}
   {{ $title = printf "%s&nbsp;&nbsp;%s" .Params.icon $title }}
 {{ end }}
