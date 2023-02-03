@@ -21,7 +21,7 @@ under the License.
 -->
 
 <!-- Main layout -->
-{{ range where .Site.Sections "Section" "docs" }}
+{{ range where .Site.Sections "Params.menu-weight" "!=" nil }}
   {{ template "book-menu-group" (dict "Pages" .Pages "CurrentPage" $ "Group" 1) }}
   {{ template "book-menu-group" (dict "Pages" .Pages "CurrentPage" $ "Group" 2) }}
   {{ template "book-menu-group" (dict "Pages" .Pages "CurrentPage" $ "Group" 3) }}
